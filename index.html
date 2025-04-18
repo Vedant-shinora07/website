@@ -27,7 +27,7 @@
     <li><a href="#contact">Contact</a></li>
   </ul>
 </div>
-</div>
+
 
 <!-- Button to open sidebar
 <div class="menu-button" onclick="toggleSidebar()">☰</div> -->
@@ -43,15 +43,52 @@
   </section>
 
   <!-- Booking Section -->
-  <section id="booking" class="booking">
+<section id="booking" class="book-your-trip">
+  <div class="trip-overlay">
     <h2>Book Your Trip</h2>
-    <form class="booking-form">
-      <input type="text" placeholder="Destination" required />
-      <input type="date" required />
-      <input type="number" placeholder="Travelers" min="1" required />
-      <button type="submit">Search</button>
+    <form class="trip-form" id="tripForm">
+      <input type="text" id="destination" placeholder="Enter Destination" list="destinations" required />
+      <datalist id="destinations">
+        <option value="Maldives">
+        <option value="Tokyo">
+        <option value="Cape Town">
+        <option value="Dubai">
+        <option value="Switzerland">
+        <option value="Bali">
+        <option value="New York">
+        <option value="Rome">
+        <option value="Paris">
+      </datalist>
+
+      <input type="date" id="departure" required />
+      <input type="date" id="return" required />
+      <input type="number" id="travelers" placeholder="No. of Travelers" min="1" value="1" required />
+
+      <div id="price-estimate">Estimated Price: ₹0</div>
+
+      <button type="submit">Search Trips</button>
     </form>
-  </section>
+
+    <div class="trust-elements">
+      <p>✅ 100% Safe Booking</p>
+      <p>✅ 24/7 Customer Support</p>
+      <p>✅ No Hidden Charges</p>
+    </div>
+  </div>
+
+  <!-- Popular Destinations Carousel -->
+  <div class="carousel">
+    <h3>Popular Destinations</h3>
+    <div class="carousel-images">
+      <img src="images/maldives.jpg" alt="Maldives" />
+      <img src="images/tokyo.jpg" alt="Tokyo" />
+      <img src="images/dubai.jpg" alt="Dubai" />
+      <img src="images/paris.jpg" alt="Paris" />
+      <img src="images/rome.jpg" alt="Rome" />
+    </div>
+  </div>
+</section>
+
 
  <!-- Services Section -->
 <section id="services" class="services">
