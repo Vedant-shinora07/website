@@ -1,0 +1,184 @@
+/* General styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+h1, h2, h3, h4 {
+  color: #333;
+}
+
+/* Section styles */
+#services {
+  padding: 40px;
+  background-color: #fff;
+}
+
+#services .service-card {
+  margin: 20px 0;
+  padding: 30px;
+  background-color: #e6e6e6;
+  border-radius: 10px;
+}
+
+#services h3 {
+  margin-bottom: 20px;
+  text-align: center;
+  color: rgb(0, 0, 0);
+  font-size: 30px;
+  font-weight: bold;
+}
+p {
+  text-align: center;;
+}
+/* Hotel Cards */
+.hotel-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.hotel-card {
+  background-color: #fff;
+  border-radius: 8px;
+  width: 300px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.hotel-card img {
+  width: 100%;
+  border-radius: 8px;
+  height: 200px;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+.hotel-card h4 {
+  font-size: 20px;
+  margin: 10px 0;
+}
+
+.hotel-card p {
+  color: #777;
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.hotel-card button {
+  background-color: #ff7b00;
+  color: white;
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.hotel-card button:hover {
+  background-color: #ff5c00;
+}
+
+/* Booking Form */
+.booking-form {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.booking-form form {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  width: 400px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.booking-form h3 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.booking-form label {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 5px;
+  margin-top: 10px;
+}
+
+.booking-form input[type="date"],
+.booking-form input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  font-size: 16px;
+}
+
+.booking-form #totalPrice {
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.booking-form .confirm-booking {
+  background-color: #ff7b00;
+  color: white;
+  padding: 12px;
+  width: 100%;
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.booking-form .confirm-booking:hover {
+  background-color: #ff5c00;
+}
+
+.booking-form .cancel-booking {
+  background-color: #ddd;
+  color: black;
+  padding: 12px;
+  width: 100%;
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.booking-form .cancel-booking:hover {
+  background-color: #bbb;
+}
+
+/* Media Query for Mobile Devices */
+@media (max-width: 768px) {
+  .hotel-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hotel-card {
+    width: 80%;
+    margin-bottom: 20px;
+  }
+
+  .booking-form form {
+    width: 90%;
+  }
+}

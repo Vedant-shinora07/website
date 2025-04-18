@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Travelo - Travel Website</title>
+  <link rel="stylesheet" href="prostyle.css" />
+</head>
+<body>
+
+
+  <!-- Logo -->
+<div class="topbar">
+  <div class="logo">  
+    <img src="images/logo.jpg" alt="logo"> <span>TRIVAGO</span>
+  </div>
+  <div class="menu-button" onclick="toggleSidebar()">☰</div>
+</div>
+
+<!-- Sidebar Navigation -->
+<div class="sidebar" id="sidebar">
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#destinations">Destinations</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</div>
+</div>
+
+<!-- Button to open sidebar
+<div class="menu-button" onclick="toggleSidebar()">☰</div> -->
+
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div>
+      <h1>Discover New Destinations</h1>
+      <p>Your dream vacation awaits with Travelo</p>
+      <a href="#booking" class="btn">Book Now</a>
+    </div>
+  </section>
+
+  <!-- Booking Section -->
+  <section id="booking" class="booking">
+    <h2>Book Your Trip</h2>
+    <form class="booking-form">
+      <input type="text" placeholder="Destination" required />
+      <input type="date" required />
+      <input type="number" placeholder="Travelers" min="1" required />
+      <button type="submit">Search</button>
+    </form>
+  </section>
+
+ <!-- Services Section -->
+<section id="services" class="services">
+  <h2>Our Services</h2>
+  <div class="services-container">
+    <!-- Existing service cards here -->
+
+    <!-- Flight Booking Button -->
+    <div class="service-card">
+      <h3>Flight Booking</h3>
+      <p>Book domestic and international flights quickly and easily.</p>
+      <a href="flight.html">
+        <button class="book-flight-btn">Book Flight</button>
+      </a>
+    </div>
+
+    <!-- Hotel Booking Button (Updated) -->
+    <div class="service-card">
+      <h3>Hotel Booking</h3>
+      <p>Book comfortable stays at your destinations.</p>
+      <a href="hotel.html"> <!-- Link to hotel booking page -->
+        <button class="book-flight-btn">Book Hotel</button> <!-- Button for hotel booking -->
+      </a>
+    </div>
+
+    <!-- Holiday Packages Button -->
+    <div class="service-card">
+      <h3>Holiday Packages</h3>
+      <p>Choose from a wide range of travel packages.</p>
+      <a href="holiday.html"> <!-- Link to holiday packages page -->
+        <button class="book-package-btn">Book Package</button>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Destinations Section -->
+  <section id="destinations" class="destinations">
+    <h2>Explore Our Top Destinations</h2>
+    <div class="destination-grid">
+      <div class="destination-card">
+        <a href="maldives.html">
+            <img src="images/maldives.jpg" alt="Maldives" />
+          <h4>Maldives</h4>
+        </a>
+      </div>
+      <div class="destination-card">
+        <a href="tokyo.html">
+          <img src="images/tokyo.jpg" alt="Tokyo" />
+          <h4>Tokyo</h4>
+        </a>
+      </div>
+      <div class="destination-card">
+        <a href="paris.html">
+          <img src="images/paris.jpg" alt="Paris" />
+          <h4>Paris</h4>
+        </a>
+      </div>
+      <div class="destination-card">
+        <a href="bali.html">
+          <img src="images/bali.jpg" alt="Bali" />
+          <h4>Bali</h4>
+        </a>
+      </div>
+      <div class="destination-card">
+        <a href="switzerland.html">
+          <img src="images/switzerland.jpg" alt="Switzerland" />
+          <h4>Switzerland</h4>
+        </a>
+      </div>
+      <div class="destination-card">
+        <a href="dubai.html">
+          <img src="images/dubai.jpg" alt="Dubai" />
+          <h4>Dubai</h4>
+        </a>
+      </div>
+      <div class="destination-card">
+        <a href="newyork.html">
+          <img src="images/newyork.jpg" alt="New York" />
+          <h4>New York</h4>
+        </a>
+      </div>
+      <div class="destination-card">
+        <a href="rome.html">
+          <img src="images/rome.jpg" alt="Rome" />
+          <h4>Rome</h4>
+        </a>
+      </div>
+      <div class="destination-card">
+        <a href="capetown.html">
+          <img src="images/capetown.jpg" alt="Cape Town" />
+          <h4>Cape Town</h4>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <h2>About Our Journey</h2>
+    <div class="about-container">
+      <img src="images/smile-girl.jpg" alt="Smiling Traveler" />
+      <div class="about-text">
+        <p>
+          Meet our happy traveler! We aim to bring joy to every journey. With personalized packages and 24/7 support, your dream vacation is just a click away.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <form class="contact-form">
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea placeholder="Your Message" rows="5" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2025 Travelo. All rights reserved.</p>
+      <div class="socials">
+        <a href="#">Facebook</a>
+        <a href="#">Instagram</a>
+        <a href="#">WhatsApp</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="projs.js"></script>
+</body>
+</html>

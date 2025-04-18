@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Flight Booking</title>
+  <link rel="stylesheet" href="flight.css" />
+</head>
+<body>
+  <section class="flight-booking">
+    <h2>Book Your Flight</h2>
+    <form class="flight-form">
+      <div class="form-group">
+        <label for="from">From:</label>
+        <input type="text" id="from" placeholder="Departure City" required />
+      </div>
+      <div class="form-group">
+        <label for="to">To:</label>
+        <input type="text" id="to" placeholder="Destination City" required />
+      </div>
+      <div class="form-group">
+        <label for="depart">Departure Date:</label>
+        <input type="date" id="depart" required />
+      </div>
+      <div class="form-group">
+        <label for="return">Return Date:</label>
+        <input type="date" id="return" />
+      </div>
+      <div class="form-group">
+        <label for="passengers">Passengers:</label>
+        <input type="number" id="passengers" min="1" value="1" required />
+      </div>
+      <div class="form-group">
+        <label for="class">Class:</label>
+        <select id="class">
+          <option>Economy</option>
+          <option>Business</option>
+          <option>First Class</option>
+        </select>
+      </div>
+      <button type="submit">Search Flights</button>
+    </form>
+    <div class="flight-results" id="flightResults" style="display: none;">
+        <h3>Available Flights</h3>
+        <ul id="resultsList"></ul>
+    </div>
+  </section>
+
+  <!-- Confirmation Modal -->
+  <div id="confirmationModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <p id="modalText"></p>
+    </div>
+  </div>
+
+  <!-- Printable Ticket -->
+  <div id="ticket" class="ticket" style="display: none;">
+    <div class="ticket-header">
+      <img src="images/plane.png" alt="Logo" class="ticket-logo" />
+      <h3>Flight Booking Ticket</h3>
+    </div>
+    <div class="ticket-body">
+      <p><strong>From:</strong> <span id="ticketFrom"></span></p>
+      <p><strong>To:</strong> <span id="ticketTo"></span></p>
+      <p><strong>Departure Date:</strong> <span id="ticketDepart"></span></p>
+      <p><strong>Flight Time:</strong> <span id="ticketTime"></span></p>
+      <p><strong>Class:</strong> <span id="ticketClass"></span></p>
+      <p><strong>Passengers:</strong> <span id="ticketPassengers"></span></p>
+    </div>
+    <div class="ticket-footer">
+      <button onclick="window.print();" class="print-btn">Print Ticket</button>
+      <button class="close-ticket" onclick="closeTicket()">Close</button>
+    </div>
+  </div>
+  <div id="ticket" class="ticket" style="display: none;">
+    <div class="ticket-container">
+      <div class="ticket-header">
+        <img src="images/plane.png" alt="Airline Logo" class="ticket-logo" />
+        <h2>Flight e-Ticket</h2>
+      </div>
+      <div class="ticket-info">
+        <div class="ticket-section">
+          <p><strong>Passenger:</strong> <span id="ticketPassengerName">John Doe</span></p>
+          <p><strong>From:</strong> <span id="ticketFrom"></span></p>
+          <p><strong>To:</strong> <span id="ticketTo"></span></p>
+          <p><strong>Departure:</strong> <span id="ticketDepart"></span></p>
+          <p><strong>Time:</strong> <span id="ticketTime"></span></p>
+          <p><strong>Class:</strong> <span id="ticketClass"></span></p>
+          <p><strong>Passengers:</strong> <span id="ticketPassengers"></span></p>
+        </div>
+        <div class="ticket-qr">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?data=FlightBookingTicket&size=100x100" alt="QR Code" />
+        </div>
+      </div>
+      <div class="ticket-footer">
+        <p>Thank you for booking with SkyConnect Airways.</p>
+        <button onclick="window.print();" class="print-btn">Print Ticket</button>
+        <button class="close-ticket" onclick="closeTicket()">Close</button>
+      </div>
+    </div>
+  </div>
+  
+
+  <script>
+    const form = document.querySelector(".flight-form");
+    const resultsSection = document.getElementById("flightResults");
+    const resultsList = document.getElementById("resultsList");
+  
+    const modal = document.getElementById("confirmationModal");
+    const modalText = document.getElementById("modalText");
+    const closeBtn = document.querySelector(".close");
+  
+    const ticket = document.getElementById("ticket");
+    const ticketFrom = document.getElementById("ticketFrom");
+    const ticketTo = document.getElementById("ticketTo");
+    const ticketDepart = document.getElementById("ticketDepart");
+    const ticketTime = document.getElementById("ticketTime");
+    const ticketClass = document.getElementById("ticketClass");
+    const ticketPassengers = document.getElementById("ticketPassengers");
+  
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+  
+      const from = document.getElementById("from").value;
+      const to = document.getElementById("to").value;
+      const depart = document.getElementById("depart").value;
+      const passengers = document.getElementById("passengers").value;
+      const travelClass = document.getElementById("class").value;
+  
+      const dummyFlights = [
+        { time: "06:30 AM", price: "₹5,000" },
+        { time: "01:45 PM", price: "₹6,200" },
+        { time: "09:15 PM", price: "₹7,300" },
+      ];
+  
+      resultsList.innerHTML = "";
+  
+      dummyFlights.forEach((flight) => {
+        const li = document.createElement("li");
+        li.innerHTML = `
+          <strong>Flight from ${from} to ${to}</strong><br>
+          Class: ${travelClass}<br>
+          Departure: ${depart} at ${flight.time}<br>
+          Price: ${flight.price}<br>
+          <button class="book-btn">Book Now</button>
+        `;
+        resultsList.appendChild(li);
+  
+        // Booking button functionality
+        li.querySelector(".book-btn").addEventListener("click", function () {
+          modalText.textContent = `✅ Your flight is booked!\nFrom: ${from} → To: ${to}\nDeparture: ${depart} at ${flight.time}`;
+          modal.style.display = "block";
+  
+          // Populate ticket details
+          ticketFrom.textContent = from;
+          ticketTo.textContent = to;
+          ticketDepart.textContent = depart;
+          ticketTime.textContent = flight.time;
+          ticketClass.textContent = travelClass;
+          ticketPassengers.textContent = passengers;
+  
+          // Show ticket
+          ticket.style.display = "block";
+        });
+      });
+  
+      resultsSection.style.display = "block";
+    });
+  
+    // Close the modal when user clicks on X
+    closeBtn.onclick = function () {
+      modal.style.display = "none";
+    };
+  
+    // Close modal when user clicks outside of it
+    window.onclick = function (event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    };
+  
+    // Close ticket
+    function closeTicket() {
+      ticket.style.display = "none";
+    }
+    ticketFrom.textContent = from;
+ticketTo.textContent = to;
+ticketDepart.textContent = depart;
+ticketTime.textContent = flight.time;
+ticketClass.textContent = travelClass;
+ticketPassengers.textContent = passengers;
+// Optional: you can let user enter their name and pass it to ticketPassengerName
+document.getElementById("ticketPassengerName").textContent = "John Doe"; // or from form input
+ticket.style.display = "block";
+
+  </script>
+</body>
+</html>

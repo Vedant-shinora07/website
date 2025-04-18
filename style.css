@@ -1,0 +1,192 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Nunito', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  ul {
+    list-style-type: none;
+  }
+
+  /* Hero Section */
+  .hero {
+    background: url('https://getwallpapers.com/wallpaper/full/a/1/6/904876-most-beautiful-beach-wallpaper-2496x1518-photos.jpg') center center no-repeat;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    
+  }
+  
+  .hero h1 {
+    font-size: 56px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  
+  .hero p {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  /* Destinations Section */
+/* Destination Card Container */
+.destination-card {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    height: 250px; /* You can adjust height as needed */
+    transition: transform 0.3s ease;
+  }
+  
+  /* Image Styling */
+  .destination-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+  
+  /* Image zoom effect on hover */
+  .destination-card:hover img {
+    transform: scale(1.1);
+  }
+  .destination-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    padding-bottom:15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    gap: 30px;
+    /* padding: 0 20px; */
+  }
+  
+  /* Title shown initially */
+  .destination-card h4 {
+    position: center;
+    bottom: 10px;
+    left: 0;
+    width: 100%;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    z-index: 1;
+  }
+  
+  /* Overlay shutter effect */
+  .destination-overlay {
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(6px);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 20px;
+    transition: bottom 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 2;
+  }
+  
+  /* Hover effect to reveal overlay */
+  .destination-card:hover .destination-overlay {
+    bottom: 0;
+  }
+  
+  /* Overlay Text Styling */
+  .destination-overlay h4 {
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+  
+  .destination-overlay p {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .section-title-box {
+    background: linear-gradient(135deg, #ff5c5c, #ff1a1a);
+    color: white;
+    padding: 20px 30px;
+    margin: 40px auto;
+    border-radius: 12px;
+    text-align: center;
+    width: fit-content;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .section-title-box h2 {
+    font-size: 28px;
+    margin: 0;
+    font-weight: bold;
+  }
+  
+  .destination-details {
+    background: #f0f8ff;
+    padding: 30px;
+    margin: 40px auto;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    text-align: center;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .destination-details h2 {
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 10px;
+  }
+  
+  .destination-details p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+  
+  .book-hotel-btn {
+    display: inline-block;
+    background-color: #0077b6;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s ease;
+  }
+  
+  .book-hotel-btn:hover {
+    background-color: #023e8a;
+  }
+  
+  
+  
