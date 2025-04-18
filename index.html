@@ -10,7 +10,7 @@
 
 
   <!-- Logo -->
-<div class="topbar">
+<div class="topbar" id="topbar">
   <div class="logo">  
     <img src="images/logo.jpg" alt="logo"> <span>TRIVAGO</span>
   </div>
@@ -23,7 +23,7 @@
     <li><a href="#home">Home</a></li>
     <li><a href="#services">Services</a></li>
     <li><a href="#destinations">Destinations</a></li>
-    <li><a href="#about">About</a></li>
+    <li><a href="#review">About</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </div>
@@ -36,8 +36,10 @@
   <!-- Hero Section -->
   <section id="home" class="hero">
     <div>
+      <div class="fade-in typing-text" id="typed-text">
       <h1>Discover New Destinations</h1>
-      <p>Your dream vacation awaits with TRIVAGO</p>
+      <!-- <p>Your dream vacation awaits with TRIVAGO</p> -->
+    </div>
       <a href="#booking" class="btn">Book Now</a>
     </div>
   </section>
@@ -45,7 +47,7 @@
   <!-- Booking Section -->
 <section id="booking" class="book-your-trip">
   <div class="trip-overlay">
-    <h2>Book Your Trip</h2>
+    <h2 class="fade-in">Book Your Trip</h2>
     <form class="trip-form" id="tripForm">
       <input type="text" id="destination" placeholder="Enter Destination" list="destinations" required />
       <datalist id="destinations">
@@ -69,7 +71,7 @@
       <button type="submit">Search Trips</button>
     </form>
 
-    <div class="trust-elements">
+    <div id="trust" class="trust-elements">
       <p>✅ 100% Safe Booking</p>
       <p>✅ 24/7 Customer Support</p>
       <p>✅ No Hidden Charges</p>
@@ -77,8 +79,8 @@
   </div>
 
   <!-- Popular Destinations Carousel -->
-  <div class="carousel">
-    <h3>Popular Destinations</h3>
+  <div id="new" class="carousel">
+    <h3 class="fade-in">Popular Destinations</h3>
     <div class="carousel-images">
       <img src="images/maldives.jpg" alt="Maldives" />
       <img src="images/tokyo.jpg" alt="Tokyo" />
@@ -92,7 +94,7 @@
 
  <!-- Services Section -->
 <section id="services" class="services">
-  <h2>Our Services</h2>
+  <h2 class="fade-in">Our Services</h2>
   <div class="services-container">
     <!-- Existing service cards here -->
 
@@ -128,7 +130,7 @@
 
   <!-- Destinations Section -->
   <section id="destinations" class="destinations">
-    <h2>Explore Our Top Destinations</h2>
+    <h2 class="fade-in">Explore Our Top Destinations</h2>
     <div class="destination-grid">
       <div class="destination-card">
         <a href="maldives.html">
@@ -187,29 +189,73 @@
     </div>
   </section>
 
-  <!-- About Section -->
-  <section id="about" class="about">
-    <h2>About Our Journey</h2>
-    <div class="about-container">
-      <img src="images/smile-girl.jpg" alt="Smiling Traveler" />
-      <div class="about-text">
-        <p>
-          Meet our happy traveler! We aim to bring joy to every journey. With personalized packages and 24/7 support, your dream vacation is just a click away.
-        </p>
+  <!-- Reviews Section with Profile Pictures -->
+<section id="reviews" style="padding: 40px 20px; background: #f7f7f7;">
+  <h2 style="text-align:center; font-size: 2rem; margin-bottom: 20px;">What Our Travelers Say</h2>
+  <div class="review-carousel-container">
+    <button id="prevBtn" class="arrow">&lt;</button>
+    <div class="review-carousel">
+      <div class="review-card">
+        <img src="https://randomuser.me/api/portraits/women/1.jpg" class="profile-pic" alt="Emma">
+        <h3>Emma Watson</h3>
+        <p class="destination">Visited: Maldives</p>
+        <div class="stars rotate-fade">⭐⭐⭐⭐⭐</div>
+        <p>"Absolutely stunning beaches and amazing experience with TRIVAGO. Everything was well-planned!"</p>
+      </div>
+      <div class="review-card">
+        <img src="https://randomuser.me/api/portraits/men/2.jpg" class="profile-pic" alt="John">
+        <h3>John Smith</h3>
+        <p class="destination">Visited: Tokyo</p>
+        <div class="stars">⭐⭐⭐⭐</div>
+        <p>"Tokyo was a dream come true. Great hotel arrangements and seamless transport bookings!"</p>
+      </div>
+      <div class="review-card">
+        <img src="https://randomuser.me/api/portraits/women/3.jpg" class="profile-pic" alt="Alice">
+        <h3>Alice Johnson</h3>
+        <p class="destination">Visited: Paris</p>
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <p>"Romantic getaway made perfect by TRIVAGO. Will book again for sure!"</p>
+      </div>
+      <div class="review-card">
+        <img src="https://randomuser.me/api/portraits/men/4.jpg" class="profile-pic" alt="Michael">
+        <h3>Michael Lee</h3>
+        <p class="destination">Visited: Bali</p>
+        <div class="stars">⭐⭐⭐⭐</div>
+        <p>"Loved the tropical vibes. Hassle-free planning and great hotel deals!"</p>
+      </div>
+      <div class="review-card">
+        <img src="https://randomuser.me/api/portraits/women/5.jpg" class="profile-pic" alt="Sophia">
+        <h3>Sophia Reyes</h3>
+        <p class="destination">Visited: Switzerland</p>
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <p>"The Alps were breathtaking. TRIVAGO helped me find hidden gems and cozy stays!"</p>
       </div>
     </div>
-  </section>
+    <button id="nextBtn" class="arrow">&gt;</button>
+  </div>
+</section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="contact">
-    <h2>Contact Us</h2>
+ <!-- Contact Section -->
+<section id="contact" class="contact-section">
+  <div class="contact-content">
+    <div class="contact-text">
+      <h2 class="contact-heading">Get in Touch</h2>
+      <p>We're here to help you plan your next adventure. Send us a message, and our team will get back to you shortly!</p>
+      <div class="contact-info">
+        <p><strong>Email:</strong> support@trivago.com</p>
+        <p><strong>Phone:</strong> +91 9023261614</p>
+        <p><strong>Location:</strong> 69 White house, America</p>
+      </div>
+    </div>
+
     <form class="contact-form">
-      <input type="text" placeholder="Your Name" required />
-      <input type="email" placeholder="Your Email" required />
-      <textarea placeholder="Your Message" rows="5" required></textarea>
-      <button type="submit">Send Message</button>
+      <input type="text" placeholder="Your Name" required class="fade-in delay-1" />
+      <input type="email" placeholder="Your Email" required class="fade-in delay-2" />
+      <textarea placeholder="Your Message" rows="5" required class="fade-in delay-3"></textarea>
+      <button type="submit" class="submit-btn fade-in delay-4">Send Message</button>
     </form>
-  </section>
+  </div>
+</section>
 
   <!-- Footer -->
   <footer>

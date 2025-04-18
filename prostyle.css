@@ -24,18 +24,66 @@
   body::-webkit-scrollbar {
     display: none; /* Chrome, Safari */
   }
-  /* Topbar with logo and button */
-.topbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding: 10px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 1001;
+  /* Initial hidden state for animations */
+.fade-in, .slide-in-left, .slide-in-right, .zoom-in, .rotate-fade {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease-out;
 }
+
+/* Final visible state when in view */
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Slide from left */
+.slide-in-left {
+  transform: translateX(-100px);
+}
+
+/* Slide from right */
+.slide-in-right {
+  transform: translateX(100px);
+}
+
+/* Zoom in */
+.zoom-in {
+  transform: scale(0.8);
+}
+
+/* Rotate and fade */
+.rotate-fade {
+  transform: rotate(-5deg);
+}
+
+/* Typing effect (simple version) */
+.typing-text {
+  font-size: 28px;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  width: fit-content;
+  padding-bottom: 50px;
+  color: rgb(47, 100, 59);
+  
+}
+.typing-text h1 {
+  color: white;
+}
+
+
+/* Typing keyframes */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+  /* Topbar with logo and button */
+
 .logo {
   display: flex;
   align-items: center;
@@ -43,7 +91,7 @@
   font-size: 28px;
   font-weight: bold;
   color: black;
-  z-index: 1001;
+  z-index: 1002;
 }
 
 .logo img {
@@ -51,6 +99,46 @@
   width: auto;
   object-fit: contain;
 }
+  /* Default topbar styling */
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: transparent;
+  transition: all 0.4s ease;
+  z-index: 1001;
+}
+.topbar .menu-button {
+  color: white;
+}
+
+.topbar .logo span,
+.topbar .menu-button {
+  color: black; /* Default color on transparent background */
+}
+
+/* On scroll */
+.topbar.scrolled {
+  background: rgba(255, 255, 255, 0.6); /* Semi-transparent white */
+  backdrop-filter: blur(10px); /* Blur effect */
+  -webkit-backdrop-filter: blur(10px); /* Safari support */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.topbar.scrolled .logo {
+  color: black;
+  z-index: 1002; /* Ensure logo is above the new background */
+}
+.topbar.scrolled .logo span,
+.topbar.scrolled .menu-button {
+  color: black;
+}
+
 
 
 /* Sidebar styles */
@@ -96,7 +184,7 @@
 .menu-button {
   font-size: 28px;
   cursor: pointer;
-  background-color: rgba(255, 255, 255, 0.15);
+  background-color: rgba(197, 192, 192, 0.914);
   color: white;
   border: none;
   padding: 10px 12px;
@@ -137,6 +225,17 @@
     margin-bottom: 20px;
   }
   
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+  
+  .fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
   .hero p {
     font-size: 20px;
     margin-bottom: 30px;
@@ -157,10 +256,12 @@
   }
   
  /* New Booking Section Styles */
- .book-your-trip h2 {
-  background-color: black;
+ #booking h2  {
+  text-align: center;
+  color: black;
+ }  
 
- }
+ 
 .book-your-trip {
   padding: 60px 20px;
   background: linear-gradient(to right, #e0eafc, #cfdef3);
@@ -219,20 +320,24 @@
   font-size: 18px;
 }
 
-.trust-elements {
+.trust-elements p {
   margin-top: 20px;
-  color: #333;
-  font-size: 14px;
+  color: #000000;
+  font-size: 15px;
+  font-weight: bold;
 }
 
-.carousel {
+#new h3 {
   margin-top: 50px;
   text-align: center;
+  text-align: center;
+  color: black;
 }
 
 .carousel h3 {
   font-size: 24px;
   margin-bottom: 20px;
+  color: black;
 }
 
 .carousel-images {
@@ -272,10 +377,15 @@
     padding-top: 20px;
     padding-bottom: 20px;
     font-size: 25px;
+    font-weight: bold;
     color: #000000;
     text-transform: uppercase;
     text-align: center;
-    background: linear-gradient(to right, #e0eafc, #cfdef3);
+    /* background: linear-gradient(to right, #e0eafc, #cfdef3);*/
+    /* background: linear-gradient(to right, #3498db, #2c3e50); */
+    background-color: white;
+
+     
   }
   
 .services-container {
@@ -283,11 +393,14 @@
   justify-content: space-between;
   gap: 20px;
   flex-wrap: wrap; /* Ensure responsiveness on smaller screens */
-  background: linear-gradient(to right, #e0eafc, #cfdef3);
+  /* background: linear-gradient(to right, #e0eafc, #cfdef3); */
+  /* background: linear-gradient(to right, #3498db, #2c3e50); */
+  background-color: white;
 }
 
 .service-card {
   background: linear-gradient(to right, #ffffff, #74b6fd, #f9fafb);
+  /* background: linear-gradient(to right, #3498db, #2c3e50,#3498db); */
   padding: 20px;
   padding-left: 10px;
   padding-bottom: 50px;
@@ -360,15 +473,15 @@
 
   .destinations {
     padding: 60px 20px;
-    /* background-color: #fff; */
     text-align: center;
     background: linear-gradient(to right, #ffffff, #74b6fd, #f9fafb);
-
+    /* background: linear-gradient(to right, #3498db, #2c3e50); */
   }
   
   .destinations h2 {
     font-size: 36px;
     margin-bottom: 40px;
+    color: black;
   }
   .destination-grid {
     display: grid;
@@ -384,6 +497,7 @@
     text-align: center;
     position: relative;
     height: 180px; /* Fixed height for uniformity */
+    border: solid;
   }
   
   .destination-card img {
@@ -407,79 +521,202 @@
   color: white;
   font-size: 1.2rem;
   font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+  text-shadow: 1px 1px 3px rgb(0, 0, 0);
 }
-  
-  /* About Section */
-  .about {
-    padding: 50px 0;
-    text-align: center;
-    background-color: #fff;
-  }
-  
-  .about h2 {
-    font-size: 30px;
-    margin-bottom: 20px;
-  }
-  
-  .about-container {
+
+  /* review section*/
+  .review-carousel-container {
     display: flex;
-    justify-content: center;
     align-items: center;
-    gap: 20px;
+    justify-content: center;
+    gap: 10px;
+    max-width: 1200px;
+    margin: auto;
+    position: relative;
   }
-  
-  .about-container img {
-    width: 200px;
-    height: 200px;
+
+  .arrow {
+    background-color: #489dd6;
+    border: none;
+    color: white;
+    font-size: 24px;
+    padding: 10px 16px;
+    cursor: pointer;
     border-radius: 50%;
-    object-fit: cover;
+    transition: background 0.3s ease;
   }
-  
-  .about-text {
-    max-width: 600px;
+
+  .arrow:hover {
+    background-color: #2980b9;
   }
-  
-  .about-text p {
-    font-size: 18px;
-    color: #555;
+
+  .review-carousel {
+    display: flex;
+    overflow: hidden;
+    width: 700px;
   }
-  
-  /* Contact Section */
-  .contact {
-    padding: 50px 0;
+
+  .review-card {
+    min-width: 340px;
+    background: white;
+    margin: 0 10px;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
     text-align: center;
-    background-color: #f9f9f9;
   }
-  
-  .contact h2 {
-    font-size: 30px;
-    margin-bottom: 20px;
+
+  .review-card .profile-pic {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 10px;
   }
-  
-  .contact-form {
-    max-width: 600px;
-    margin: 0 auto;
+
+  .review-card h3 {
+    margin: 5px 0;
+    font-size: 18px;
+    color: #333;
   }
-  
-  .contact-form input,
-  .contact-form textarea,
-  .contact-form button {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
+
+  .review-card .destination {
+    color: #888;
+    font-size: 14px;
+    margin: 5px 0;
+  }
+
+  .review-card .stars {
+    color: #FFD700;
+    margin: 5px 0 10px 0;
     font-size: 16px;
   }
-  
-  .contact-form button {
-    background-color: #ff5c5c;
+
+  .review-card p {
+    font-size: 15px;
+    color: #555;
+  } 
+  /* Contact Section */
+  .contact-section {
+    background: linear-gradient(to right, #3498db, #2c3e50);
+    color: #fff;
+    padding: 60px 20px;
+    overflow: hidden;
+  }
+
+  .contact-content {
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: flex-start;
+    animation: fadeInUp 1s ease-out;
+  }
+
+  .contact-text {
+    flex: 1;
+    min-width: 300px;
+  }
+
+  .contact-heading {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    animation: slideInLeft 1s ease-out;
+  }
+
+  .contact-text p {
+    font-size: 16px;
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+
+  .contact-info p {
+    font-size: 15px;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+  }
+
+  .contact-info p:hover {
+    transform: scale(1.05);
+  }
+
+  .contact-form {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    animation: slideInRight 1s ease-out;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    padding: 12px 16px;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    color: #333;
+  }
+
+  .contact-form input:focus,
+  .contact-form textarea:focus {
+    outline: none;
+    box-shadow: 0 0 10px #2980b9;
+  }
+
+  .submit-btn {
+    background: #e67e22;
     color: white;
     border: none;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 8px;
     cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
   }
-  
-  .contact-form button:hover {
-    background-color: #ff1a1a;
+
+  .submit-btn:hover {
+    background: #d35400;
+    transform: scale(1.05);
+  }
+
+  /* Animation Styles */
+  .fade-in {
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+  }
+
+  .delay-1 { animation-delay: 0.2s; }
+  .delay-2 { animation-delay: 0.4s; }
+  .delay-3 { animation-delay: 0.6s; }
+  .delay-4 { animation-delay: 0.8s; }
+
+  @keyframes fadeIn {
+    to { opacity: 1; }
+  }
+
+  @keyframes fadeInUp {
+    0% { transform: translateY(30px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+
+  @keyframes slideInLeft {
+    from { transform: translateX(-100px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+
+  @keyframes slideInRight {
+    from { transform: translateX(100px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+
+  @media (max-width: 768px) {
+    .contact-content {
+      flex-direction: column;
+    }
   }
   
   /* Footer Styles */

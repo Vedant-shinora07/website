@@ -10,6 +10,23 @@ h1, h2, h3, h4 {
   color: #333;
 }
 
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 1px;
+  font-size: 28px;
+  font-weight: bold;
+  color: black;
+  z-index: 1002;
+  padding-left: 10px;
+}
+
+.logo img {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+}
+
 /* Section styles */
 #services {
   padding: 40px;

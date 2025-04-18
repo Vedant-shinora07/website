@@ -1,6 +1,6 @@
 function toggleSidebar() {
-    const sidebar = document.getElementById("sidebar");
-    sidebar.classList.toggle("open");
+    const sidebar = document.getElementById('sidebar');
+    sidebar.classList.toggle('open');
   }
   
   document.addEventListener("DOMContentLoaded", function () {
@@ -39,4 +39,51 @@ function toggleSidebar() {
       }
     });
   });
+  const carousel = document.querySelector('.review-carousel');
+  const cardWidth = 360; // 340 + margin
+  let scrollPosition = 0;
 
+  document.getElementById('nextBtn').addEventListener('click', () => {
+    const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+    scrollPosition = Math.min(scrollPosition + cardWidth * 2, maxScroll);
+    carousel.scrollTo({ left: scrollPosition, behavior: 'smooth' });
+  });
+
+  document.getElementById('prevBtn').addEventListener('click', () => {
+    scrollPosition = Math.max(scrollPosition - cardWidth * 2, 0);
+    carousel.scrollTo({ left: scrollPosition, behavior: 'smooth' });
+  });
+
+  window.addEventListener('scroll', function () {
+    const topbar = document.getElementById('topbar');
+    if (window.scrollY > 50) {
+      topbar.classList.add('scrolled');
+    } else {
+      topbar.classList.remove('scrolled');
+    }
+  });
+  const faders = document.querySelectorAll('.fade-in');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      }
+    });
+  }, { threshold: 0.2 });
+  
+  faders.forEach(fadeEl => observer.observe(fadeEl));
+  const text = "Your dream vacations awaits with TRIVAGO...";
+  const typedText = document.getElementById("typed-text");
+  let index = 0;
+
+  function type() {
+    if (index < text.length) {
+      typedText.innerHTML += text.charAt(index);
+      index++;
+      setTimeout(type, 70); // Adjust typing speed here
+    }
+  }
+
+  window.onload = type;
+  

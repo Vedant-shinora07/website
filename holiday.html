@@ -1,0 +1,204 @@
+<html>
+    <head>
+        <title>holiday section</title>
+        <link rel="stylesheet" href="holiday.css" />
+    </head>
+<body>
+     <!-- Logo -->
+<div class="topbar" id="topbar">
+    <div class="logo">  
+      <img src="images/logo.jpg" alt="logo"> <span>TRIVAGO</span>
+    </div>
+  </div>
+
+<!-- Holiday Packages Section -->
+<section id="holiday-packages">
+    <div class="container">
+      <h2 class="section-title">Our Popular Holiday Packages</h2>
+      <div class="package-cards">
+        <!-- Package 1 -->
+        <div class="package-card">
+          <div class="package-image">
+            <img src="images/maldives.jpg" alt="Maldives">
+          </div>
+          <div class="package-info">
+            <h3 class="package-name">Romantic Getaway in Maldives</h3>
+            <p class="duration">5 Days / 4 Nights</p>
+            <ul class="inclusions">
+              <li>✈️ Flights</li>
+              <li>🏨 4-Star Resort</li>
+              <li>🍽️ Breakfast & Dinner</li>
+              <li>🚐 Airport Transfers</li>
+              <li>🧭 Guided Tours</li>
+              <li>🎟️ Entry Tickets</li>
+            </ul>
+            <p class="price">Starting From: ₹1,10,000</p>
+            <button class="btn" onclick="openModal('Romantic Getaway in Maldives')">Book Now</button>
+
+          </div>
+        </div>
+  
+        <!-- Package 2 -->
+        <div class="package-card">
+          <div class="package-image">
+            <img src="images/adventure.jpg" alt="Adventure Trek">
+          </div>
+          <div class="package-info">
+            <h3 class="package-name">Adventure Trek in Himachal</h3>
+            <p class="duration">7 Days / 6 Nights</p>
+            <ul class="inclusions">
+              <li>✈️ Flights</li>
+              <li>🏨 3-Star Hotels</li>
+              <li>🍽️ Breakfast & Dinner</li>
+              <li>🚐 Transfers</li>
+              <li>🧭 Guided Tours</li>
+              <li>🎟️ Trekking Gear</li>
+            </ul>
+            <p class="price">Starting From: ₹98,000</p>
+            <button class="btn" onclick="openModal('Adventure Trek in Himachal')">Book Now</button>
+
+          </div>
+        </div>
+  
+        <!-- Package 3 -->
+        <div class="package-card">
+          <div class="package-image">
+            <img src="images/europe-tour.jpg" alt="Europe Tour">
+          </div>
+          <div class="package-info">
+            <h3 class="package-name">Explore Europe - 10 Days Tour</h3>
+            <p class="duration">10 Days / 9 Nights</p>
+            <ul class="inclusions">
+              <li>✈️ Flights</li>
+              <li>🏨 4-Star Hotels</li>
+              <li>🍽️ Breakfast & Dinner</li>
+              <li>🧭 City Tours</li>
+              <li>🚐 All Transfers</li>
+              <li>🎟️ Museum Tickets</li>
+            </ul>
+            <p class="price">Starting From: ₹2,80,000</p>
+            <button class="btn" onclick="openModal('Explore Europe - 10 Days Tour')">Book Now</button>
+          </div>
+        </div>
+  
+        <!-- Package 4 -->
+        <div class="package-card">
+          <div class="package-image">
+            <img src="images/japan-tour.jpg" alt="Japan Tour">
+          </div>
+          <div class="package-info">
+            <h3 class="package-name">Cultural Japan Tour</h3>
+            <p class="duration">8 Days / 7 Nights</p>
+            <ul class="inclusions">
+              <li>✈️ Flights</li>
+              <li>🏨 5-Star Hotels</li>
+              <li>🍽️ Breakfast & Dinner</li>
+              <li>🧭 Cultural Experience</li>
+              <li>🚐 Transfers Included</li>
+            </ul>
+            <p class="price">Starting From: ₹3,24,000</p>
+            <button class="btn" onclick="openModal('Cultural Japan Tour')">Book Now</button>
+          </div>
+        </div>
+  
+        <!-- Package 5 -->
+        <div class="package-card">
+          <div class="package-image">
+            <img src="images/safari.jpg" alt="Safari Tour">
+          </div>
+          <div class="package-info">
+            <h3 class="package-name">African Safari Adventure</h3>
+            <p class="duration">6 Days / 5 Nights</p>
+            <ul class="inclusions">
+              <li>✈️ Flights</li>
+              <li>🏨 5-Star Resorts</li>
+              <li>🍽️ Full Meals Included</li>
+              <li>🧭 Safari Tours</li>
+              <li>🎟️ Animal Sightseeing</li>
+            </ul>
+            <p class="price">Starting From: ₹2,09,000</p>
+            <button class="btn" onclick="openModal('African Safari Adventure')">Book Now</button>
+          </div>
+        </div>
+  
+        <!-- Package 6 -->
+        <div class="package-card">
+          <div class="package-image">
+            <img src="images/asia-tour.jpg" alt="Asia Tour">
+          </div>
+          <div class="package-info">
+            <h3 class="package-name">Asian Cultural Exploration</h3>
+            <p class="duration">9 Days / 8 Nights</p>
+            <ul class="inclusions">
+              <li>✈️ Flights</li>
+              <li>🏨 4-Star Hotels</li>
+              <li>🍽️ Breakfast & Dinner</li>
+              <li>🧭 Guided Tours</li>
+              <li>🎟️ Heritage Sites Tickets</li>
+            </ul>
+            <p class="price">Starting From: ₹1,49,990</p>
+            <button class="btn" onclick="openModal('Asian Cultural Exploration')">Book Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Book Now Section -->
+  <section id="book-now">
+    <h3>Book Your Holiday Now!</h3>
+  </section>
+  
+  <!-- Modal -->
+  <div id="bookingModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal()">&times;</span>
+      <h2>Book Your Package</h2>
+      <form onsubmit="submitBooking(event)">
+        <input type="text" id="packageName" readonly />
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <input type="tel" placeholder="Phone Number" required />
+        <input type="number" placeholder="Number of People" required />
+        <input type="date" required />
+        <textarea placeholder="Message (Optional)" rows="3"></textarea>
+        <button type="submit" class="submit-btn">Submit</button>
+        <div class="success-msg" id="successMsg"></div>
+      </form>
+    </div>
+  </div>
+
+  
+  <script>
+      // Optional: Smooth Scroll for "Book Now" button
+  document.querySelector('.btn').addEventListener('click', function (e) {
+    e.preventDefault();
+    document.querySelector('#book-now').scrollIntoView({ behavior: 'smooth' });
+  });
+  
+  function openModal(packageName) {
+      document.getElementById('packageName').value = packageName;
+      document.getElementById('bookingModal').style.display = 'block';
+      document.getElementById('successMsg').innerText = '';
+    }
+
+    function closeModal() {
+      document.getElementById('bookingModal').style.display = 'none';
+    }
+
+    function submitBooking(event) {
+      event.preventDefault();
+      document.getElementById('successMsg').innerText = '✅ Booking submitted successfully!';
+      setTimeout(closeModal, 2500);
+    }
+
+    // Optional: Close modal on outside click
+    window.onclick = function(event) {
+      const modal = document.getElementById('bookingModal');
+      if (event.target === modal) {
+        closeModal();
+      }
+    }
+  </script>  
+</body>
+</html>
